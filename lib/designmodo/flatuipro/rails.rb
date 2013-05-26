@@ -3,7 +3,8 @@ require "designmodo/flatuipro/rails/version"
 module Designmodo
   module Flatuipro
     module Rails
-      # Your code goes here...
+      class Engine < ::Rails::Engine
+      end
     end
   end
 end
