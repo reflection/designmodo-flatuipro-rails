@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'jquery-rails',            '>= 2.2.1'
   spec.post_install_message = "" \
   "**********************************************\n\n" \
-  "You *must* run the `rails generate flatuipro:install <Flat UI Pro Directory>` generator\n" \
-  "after install *and* if the designmodo-flatuipro-rails gem is updated.\n\n" \
+  "One *must* run the `rails generate flatuipro:install <Flat UI Pro Directory>` generator\n" \
+  "after install *and* after update of designmodo-flatuipro-rails gem.\n\n" \
   "**********************************************"
 end
