@@ -26,6 +26,7 @@ module Flatuipro
         end
         directory File.join(flatuipro_dir, "js"),     File.join(gem_assets_dir, "javascripts")
         directory File.join(flatuipro_dir, "images"), File.join(gem_assets_dir, "images")
+        remove_file File.join(gem_assets_dir, "images", "exaple-image.jpg")
         directory File.join(flatuipro_dir, "fonts"),  File.join(gem_assets_dir, "fonts")
       end
 
