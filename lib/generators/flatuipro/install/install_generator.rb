@@ -42,6 +42,23 @@ module Flatuipro
           unless content.match(/require\s+flatuipro/)
             insert_into_file js_manifest, "//= require flatuipro\n", :after => "twitter/bootstrap\n"
           end
+          unless content.match(/require\s+jquery.ui.all/)
+            unless content.match(/require\s+jquery.ui.effect/)
+              insert_into_file js_manifest, "//= require jquery.ui.effect\n", :after => "jquery\n"
+            end
+            unless content.match(/require\s+jquery.ui.tooltip/)
+              insert_into_file js_manifest, "//= require jquery.ui.tooltip\n", :after => "jquery\n"
+            end
+            unless content.match(/require\s+jquery.ui.spinner/)
+              insert_into_file js_manifest, "//= require jquery.ui.spinner\n", :after => "jquery\n"
+            end
+            unless content.match(/require\s+jquery.ui.slider/)
+              insert_into_file js_manifest, "//= require jquery.ui.slider\n", :after => "jquery\n"
+            end
+            unless content.match(/require\s+jquery.ui.datepicker/)
+              insert_into_file js_manifest, "//= require jquery.ui.datepicker\n", :after => "jquery\n"
+            end
+          end
         else
           copy_file "application.js", js_manifest
         end
