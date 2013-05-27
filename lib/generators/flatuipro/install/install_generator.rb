@@ -17,16 +17,16 @@ module Flatuipro
             raise "Invalid Flat UI Pro directory"
           end
         end
-        assets_dir = File.expand_path("../../../../../vendor/assets", __FILE__)
+        gem_assets_dir = File.expand_path("../../../../../vendor/assets", __FILE__)
 
         if use_less?
-          directory File.join(flatuipro_dir, "less"), File.join(assets_dir, "less")
+          directory File.join(flatuipro_dir, "less"), File.join(gem_assets_dir, "less")
         else
-          copy_file File.join(flatuipro_dir, "css", "flat-ui.css"),  "app/assets/stylesheets/flat-ui.css"
+          copy_file File.join(flatuipro_dir, "css", "flat-ui.css"), "app/assets/stylesheets/flat-ui.css"
         end
-        directory File.join(flatuipro_dir, "js"),     File.join(assets_dir, "javascripts")
-        directory File.join(flatuipro_dir, "images"), File.join(assets_dir, "images")
-        directory File.join(flatuipro_dir, "fonts"),  "public/fonts"
+        directory File.join(flatuipro_dir, "js"),     File.join(gem_assets_dir, "javascripts")
+        directory File.join(flatuipro_dir, "images"), File.join(gem_assets_dir, "images")
+        directory File.join(flatuipro_dir, "fonts"),  File.join(gem_assets_dir, "fonts")
       end
 
       def add_assets
@@ -57,6 +57,24 @@ module Flatuipro
         else
           copy_file "application.css", "app/assets/stylesheets/application.css"
         end
+      end
+
+      def patch_assets
+        gem_assets_dir = File.expand_path("../../../../../vendor/assets", __FILE__)
+
+        # Stylesheets patches
+        # image url() -> image-url()
+        # font  url() -> font-url()
+        # LESS
+        if use_less?
+          gsub_file File.join(gem_assets_dir, "less/modules", "switch.less"), /url\('\.\.\/images\//, "image-url('"
+          gsub_file File.join(gem_assets_dir, "less", "icon-font.less"), /url\("\.\.\/fonts\//, 'font-url("'
+        # CSS
+        else
+          gsub_file "app/assets/stylesheets/flat-ui.css", /url\('\.\.\/images\//, "image-url('"
+          gsub_file "app/assets/stylesheets/flat-ui.css", /url\("\.\.\/fonts\//, 'font-url("'
+        end
+
       end
 
       private
