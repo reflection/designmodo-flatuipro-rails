@@ -24,9 +24,15 @@ module Flatuipro
         else
           copy_file File.join(flatuipro_dir, "css", "flat-ui.css"), "app/assets/stylesheets/flat-ui.css"
         end
-        directory File.join(flatuipro_dir, "js"),     File.join(gem_assets_dir, "javascripts")
-        directory File.join(flatuipro_dir, "images"), File.join(gem_assets_dir, "images")
-        directory File.join(flatuipro_dir, "fonts"),  File.join(gem_assets_dir, "fonts")
+        directory File.join(flatuipro_dir, "js"),                   File.join(gem_assets_dir, "javascripts")
+        directory File.join(flatuipro_dir, "images"),               File.join(gem_assets_dir, "images")
+        directory File.join(flatuipro_dir, "fonts"),                File.join(gem_assets_dir, "fonts")
+
+        # Demo page assets
+        copy_file File.join(flatuipro_dir, "index.html"),           File.join(gem_assets_dir, "demo", "index.html")
+        copy_file File.join(flatuipro_dir, "js", "application.js"), File.join(gem_assets_dir, "demo", "flatuipro-demo.js")
+        copy_file File.join(flatuipro_dir, "css", "demo.css"),      File.join(gem_assets_dir, "demo", "flatuipro-demo.css")
+        copy_file File.join(flatuipro_dir, "less", "demo.less"),    File.join(gem_assets_dir, "demo", "flatuipro-demo.less")
       end
 
       def add_assets
@@ -93,6 +99,25 @@ module Flatuipro
           gsub_file "app/assets/stylesheets/flat-ui.css", /url\("\.\.\/fonts\//, 'url("/assets/'
         end
 
+        # Demo page patches
+        file = File.join(gem_assets_dir, "demo", "index.html")
+        # Fix image links
+        gsub_file file, /<img src="images\/.+?>/ do |s|
+          match = /images\/(.+?)"/.match(s)
+          '<%= image_tag "' + match[1] + '" %>'
+        end
+
+        # Remove everything before <body> tag and after 'Load JS', inclusive
+        new_file = File.open("#{file}.erb", "w")
+        include_line = false
+        IO.foreach(file) do |line|
+          include_line = false if line =~ /Load JS/
+
+          new_file.write line if include_line
+
+          include_line = true if line =~ /<body>/
+        end
+        new_file.close
       end
 
       private
