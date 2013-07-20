@@ -21,9 +21,19 @@ Or install it yourself as:
 
     $ gem install designmodo-flatuipro-rails
 
-One **must** run the install generator after install *and* after update of designmodo-flatuipro-rails gem:
+### Install Generator
+One **must** run this after install *and* after update of designmodo-flatuipro-rails gem:
 
     $ rails generate flatuipro:install <Flat UI Pro Directory>
+
+### Demo Page Generator
+If you want to integrate the demo page:
+
+    $ rails generate flatuipro:demo
+
+The demo generator creates a 'flatuipro\_demo' controller with a default 'flatuipro\_demo/index' route.
+
+IMPORTANT: After deciding which components to use from the demo page, make sure to only include the corresponding less/css and js that you need from the flatuipro-demo.* files
 
 ## Usage
 After running the install generator, all assets should be setup.
@@ -32,6 +42,17 @@ This gem will detect whether you chose less/static for the twitter-bootstrap-rai
 
 ## Thanks
 If you haven't bought it already, please use my Designmodo Affiliate Link (image above)
+
+## Changes
+#### 1.3.1.0
+* Support Flat UI Pro 1.3.1
+* Add new 'flatuipro:demo' generator to integrate demo page
+
+#### 1.1.1
+* Minor documentation changes to include Rails 4 compatibility
+
+#### 1.1.0
+* Initial commit
 
 ## Contributing
 
