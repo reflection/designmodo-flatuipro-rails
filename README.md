@@ -4,7 +4,7 @@ This gem integrates Designmodo's Flat UI Pro Design for Twitter Bootstrap into t
 
 You **must** purchase and download a licensed copy to use this gem (none of the assets are packaged per Flat UI Pro license).  You may do so by clicking the above image (full disclosure: affiliate link).
 
-The version major and minor should match the Flat UI Pro version.  Anything after the major or minor are gem versions.
+The version major and minors should match the Flat UI Pro version.  Anything after these are gem versions.
 
 ## Installation
 First install and configure dependencies: [twitter-bootstrap-rails](https://github.com/seyhunak/twitter-bootstrap-rails) and [jquery-ui-rails](https://github.com/joliss/jquery-ui-rails) .
@@ -44,8 +44,8 @@ This gem will detect whether you chose less/static for the twitter-bootstrap-rai
 If you haven't bought it already, please use my Designmodo Affiliate Link (image above)
 
 ## Changes
-#### 1.3.1.0
-* Support Flat UI Pro 1.3.1
+#### 1.1.3.0
+* Support Flat UI Pro 1.1.3
 * Add new 'flatuipro:demo' generator to integrate demo page
 
 #### 1.1.1
