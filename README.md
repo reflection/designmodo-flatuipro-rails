@@ -43,6 +43,8 @@ This gem will detect whether you chose less/static for the twitter-bootstrap-rai
 ## Thanks
 If you haven't bought it already, please use my Designmodo Affiliate Link (image above)
 
+Thanks [@jehughes](https://github.com/jehughes) for the blog post that inspired me to stop being lazy and write the demo page generator =)
+
 ## Changes
 #### 1.1.3.0
 * Support Flat UI Pro 1.1.3
