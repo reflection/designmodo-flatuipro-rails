@@ -31,11 +31,7 @@ After running the install generator, all assets should be setup.
 This gem will detect whether you chose less/static for the twitter-bootstrap-rails install and generate either less/css flatuipro files accordingly.
 
 ## Thanks
-Any and all donations are much appreciated =).
-
-Gittip: [reflection](https://www.gittip.com/reflection/)
-
-Designmodo Affiliate Link (image above)
+If you haven't bought it already, please use my Designmodo Affiliate Link (image above)
 
 ## Contributing
 
