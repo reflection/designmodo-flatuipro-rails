@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Designmodo::Flatuipro::Rails::VERSION
   spec.authors       = ["Samuel Chou"]
   spec.email         = ["sam.chou@windystudios.com"]
-  spec.description   = %q{designmodo-flatuipro-rails integrates Flat UI Pro for Rails 3 and 4 Asset Pipeline}
-  spec.summary       = %q{Flat UI Pro for Rails 3.2 Asset Pipeline}
+  spec.description   = %q{designmodo-flatuipro-rails integrates Flat UI Pro for Rails 3 and 4 Asset Pipelines}
+  spec.summary       = %q{Flat UI Pro for Rails 3 and 4 Asset Pipelines}
   spec.homepage      = "https://github.com/reflection/designmodo-flatuipro-rails"
   spec.license       = "Simplified BSD"
 
