@@ -24,6 +24,6 @@ Gem::Specification.new do |spec|
   spec.post_install_message = "" \
   "**********************************************\n\n" \
   "One *must* run the `rails generate flatuipro:install <Flat UI Pro Directory>` generator\n" \
-  "after install *and* after update of designmodo-flatuipro-rails gem.\n\n" \
+  "when gem updated to support new FLat UI Pro version\n\n" \
   "**********************************************"
 end
