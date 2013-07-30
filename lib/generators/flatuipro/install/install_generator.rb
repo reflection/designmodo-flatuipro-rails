@@ -9,30 +9,30 @@ module Flatuipro
       source_root File.expand_path("../templates", __FILE__)
 
       def copy_assets
-        if Pathname.new(flatuipro_dir).basename != "UI"
-          new_flatuipro_dir = File.join(flatuipro_dir, "HTML/UI")
-          if File.directory?(new_flatuipro_dir)
-            flatuipro_dir = new_flatuipro_dir
-          else
-            raise "Invalid Flat UI Pro directory"
-          end
-        end
         gem_assets_dir = File.expand_path("../../../../../vendor/assets", __FILE__)
+        pro_dir = flatuipro_dir
+
+        unless File.exist?(File.join(pro_dir, "index.html"))
+          pro_dir = File.join(pro_dir, "HTML/UI")
+        end
+        unless File.directory?(pro_dir) && File.exist?(File.join(pro_dir, "index.html"))
+          raise "Invalid Flat UI Pro directory"
+        end
 
         if use_less?
-          directory File.join(flatuipro_dir, "less"), File.join(gem_assets_dir, "less")
+          directory File.join(pro_dir, "less"), File.join(gem_assets_dir, "less")
         else
-          copy_file File.join(flatuipro_dir, "css", "flat-ui.css"), "app/assets/stylesheets/flat-ui.css"
+          copy_file File.join(pro_dir, "css", "flat-ui.css"), "app/assets/stylesheets/flat-ui.css"
         end
-        directory File.join(flatuipro_dir, "js"),                   File.join(gem_assets_dir, "javascripts")
-        directory File.join(flatuipro_dir, "images"),               File.join(gem_assets_dir, "images")
-        directory File.join(flatuipro_dir, "fonts"),                File.join(gem_assets_dir, "fonts")
+        directory File.join(pro_dir, "js"),                   File.join(gem_assets_dir, "javascripts")
+        directory File.join(pro_dir, "images"),               File.join(gem_assets_dir, "images")
+        directory File.join(pro_dir, "fonts"),                File.join(gem_assets_dir, "fonts")
 
         # Demo page assets
-        copy_file File.join(flatuipro_dir, "index.html"),           File.join(gem_assets_dir, "demo", "index.html")
-        copy_file File.join(flatuipro_dir, "js", "application.js"), File.join(gem_assets_dir, "demo", "flatuipro-demo.js")
-        copy_file File.join(flatuipro_dir, "css", "demo.css"),      File.join(gem_assets_dir, "demo", "flatuipro-demo.css")
-        copy_file File.join(flatuipro_dir, "less", "demo.less"),    File.join(gem_assets_dir, "demo", "flatuipro-demo.less")
+        copy_file File.join(pro_dir, "index.html"),           File.join(gem_assets_dir, "demo", "index.html")
+        copy_file File.join(pro_dir, "js", "application.js"), File.join(gem_assets_dir, "demo", "flatuipro-demo.js")
+        copy_file File.join(pro_dir, "css", "demo.css"),      File.join(gem_assets_dir, "demo", "flatuipro-demo.css")
+        copy_file File.join(pro_dir, "less", "demo.less"),    File.join(gem_assets_dir, "demo", "flatuipro-demo.less")
       end
 
       def add_assets
