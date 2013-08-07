@@ -46,6 +46,10 @@ If you haven't bought it already, please use my Designmodo Affiliate Link (image
 Thanks [@jehughes](https://github.com/jehughes) for the blog post that inspired me to stop being lazy and write the demo page generator =)
 
 ## Changes
+#### 1.1.3.1
+* Move directory from vendor -> app because of rails 4 (https://github.com/rails/rails/pull/7968)
+* Ensure all assets are precompiled correctly if so desired
+
 #### 1.1.3.0
 * Support Flat UI Pro 1.1.3
 * Add new 'flatuipro:demo' generator to integrate demo page
