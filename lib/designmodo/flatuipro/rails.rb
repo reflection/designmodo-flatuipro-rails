@@ -8,7 +8,7 @@ module Designmodo
           :after => 'less-rails.after.load_config_initializers',
           :group => :all do |app|
             if defined?(Less)
-              app.config.less.paths << File.join(config.root, 'vendor', 'less')
+              app.config.less.paths << File.join(config.root, 'app', 'less')
             end
           end
       end

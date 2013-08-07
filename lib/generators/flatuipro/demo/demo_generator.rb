@@ -5,11 +5,11 @@ module Flatuipro
   module Generators
     class DemoGenerator < Rails::Generators::Base
       desc "Setup Flat UI Pro Demo page."
-      source_root File.expand_path("../../../../../vendor/assets/demo", __FILE__)
+      source_root File.expand_path("../../../../../app/assets/demo", __FILE__)
 
       # Detect if Flat UI Pro assets copied over to gem
       def check_flatuipro_install
-        unless File.exist?(File.expand_path("../../../../../vendor/assets", __FILE__))
+        unless File.exist?(File.expand_path("../../../../../app/assets", __FILE__))
           raise "Please run install generator first"
         end
       end

@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'jquery-ui-rails',         '>= 4.0.3'
   spec.post_install_message = "" \
   "**********************************************\n\n" \
-  "One *must* run the `rails generate flatuipro:install <Flat UI Pro Directory>` generator\n" \
-  "when gem updated to support new FLat UI Pro version\n\n" \
+  "One *must* run `rails generate flatuipro:install <Flat UI Pro Directory>`\n" \
+  "when gem updated\n\n" \
   "**********************************************"
 end

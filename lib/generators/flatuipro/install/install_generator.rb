@@ -9,7 +9,7 @@ module Flatuipro
       source_root File.expand_path("../templates", __FILE__)
 
       def copy_assets
-        gem_assets_dir = File.expand_path("../../../../../vendor/assets", __FILE__)
+        gem_assets_dir = File.expand_path("../../../../../app/assets", __FILE__)
         pro_dir = flatuipro_dir
 
         unless File.exist?(File.join(pro_dir, "index.html"))
@@ -83,7 +83,7 @@ module Flatuipro
       end
 
       def patch_assets
-        gem_assets_dir = File.expand_path("../../../../../vendor/assets", __FILE__)
+        gem_assets_dir = File.expand_path("../../../../../app/assets", __FILE__)
 
         # Stylesheets patches
         # image url() -> image-url()
