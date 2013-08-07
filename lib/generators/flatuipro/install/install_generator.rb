@@ -90,8 +90,15 @@ module Flatuipro
         # font  url() -> font-url()
         # LESS
         if use_less?
-          # Should use image-url() here, but less-rails won't translate when inside ~""
-          gsub_file File.join(gem_assets_dir, "less/modules", "switch.less"), /url\('\.\.\/images\//, "url('/assets/"
+          # switch.less
+          # More involved patch because less-rails won't translate when inside ~""
+          # Create LESS variable and interpolate into .mask(~"")
+          switch_file = File.join(gem_assets_dir, "less/modules", "switch.less")
+          mask_image_url = "@mask-image-url: image-url('switch/mask.png');\n"
+          insert_into_file switch_file, mask_image_url, :before => ".has-switch {\n"
+          gsub_file switch_file, /url\('\.\.\/images\/.+?\)/, "@{mask-image-url}"
+
+          # icon-font.less
           gsub_file File.join(gem_assets_dir, "less", "icon-font.less"), /url\("\.\.\/fonts\//, 'font-url("'
         # CSS
         else
