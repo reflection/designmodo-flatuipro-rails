@@ -46,6 +46,9 @@ If you haven't bought it already, please use my Designmodo Affiliate Link (image
 Thanks [@jehughes](https://github.com/jehughes) for the blog post that inspired me to stop being lazy and write the demo page generator =)
 
 ## Changes
+#### 1.1.4.1
+* Remove accidentally committed debugging statement
+
 #### 1.1.4.0
 * Support Flat UI Pro 1.1.4
 * Detect nested Flat-UI-Pro-1.1.4 directory (in Flat UI Pro 1.2.1 download)
