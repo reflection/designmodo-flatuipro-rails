@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'twitter-bootstrap-rails', '>= 2.2.6'
+  spec.add_dependency 'bootstrap-on-rails'
   spec.add_dependency 'jquery-rails',            '>= 2.2.1'
   spec.add_dependency 'jquery-ui-rails',         '>= 4.0.3'
   spec.post_install_message = "" \
