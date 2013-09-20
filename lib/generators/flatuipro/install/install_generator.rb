@@ -67,6 +67,9 @@ module Flatuipro
             unless content.match(/require\s+jquery.ui.datepicker/)
               insert_into_file js_manifest, "//= require jquery.ui.datepicker\n", :after => "jquery\n"
             end
+            unless content.match(/require\s+jquery.ui.button/)
+              insert_into_file js_manifest, "//= require jquery.ui.button\n", :after => "jquery\n"
+            end
           end
         else
           copy_file "application.js", js_manifest
