@@ -22,13 +22,9 @@ module Flatuipro
         # Overwrite generated index.html.erb with demo html
         copy_file "index.html.erb", "app/views/flatuipro_demo/index.html.erb"
 
-        # Add demo less/css
-        if use_less?
-          copy_file "flatuipro-demo.less", "app/assets/stylesheets/flatuipro-demo.less"
-        else
-          copy_file "flatuipro-demo.css", "app/assets/stylesheets/flatuipro-demo.css"
-        end
-
+        # Add demo LESS
+        copy_file "flatuipro-demo.less", "app/assets/stylesheets/flatuipro-demo.less"
+        
         # Handle CSS Manifest
         css_manifest = "app/assets/stylesheets/application.css"
         if File.exist?(css_manifest)
@@ -51,18 +47,6 @@ module Flatuipro
           end
         end
       end
-
-      private
-        # Detect if twitter-bootstrap-rails installed with LESS or static stylesheets
-        def use_less?
-          if File.exist?("app/assets/stylesheets/bootstrap_and_overrides.css.less")
-            return true
-          elsif File.exist?("app/assets/stylesheets/bootstrap_and_overrides.css")
-            return false
-          else
-            raise "Cannot detect twitter-bootstrap-rails install"
-          end
-        end
     end
   end
 end
