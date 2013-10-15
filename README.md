@@ -11,7 +11,7 @@ First install and configure dependencies: [bootstrap-on-rails](https://github.co
 
 Add this line to your application's Gemfile:
 
-    gem 'designmodo-flatuipro-rails', '~> 1.2.1.0.branch'
+    gem 'designmodo-flatuipro-rails', '~> 1.2.2.0.branch'
 
 And then execute:
 
@@ -19,7 +19,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install designmodo-flatuipro-rails
+    $ gem install designmodo-flatuipro-rails -v 1.2.2.0.branch
 
 ### Install Generator
 One **must** run this after install *and* after update of designmodo-flatuipro-rails gem:
@@ -47,6 +47,7 @@ Thanks [@jehughes](https://github.com/jehughes) for the blog post that inspired 
 #### 1.2.2.0.branch
 * Detect Flat-UI-Pro-1.2.2 directory
 * Everything else seems to still work =)
+
 #### 1.2.1.0.branch
 * Git branch (flatuipro-1.2) and gem release for people who want to use Bootstrap 3
 * Rails bootstrap gem changed: _twitter-bootstrap-rails_ -> _bootstrap-on-rails_
