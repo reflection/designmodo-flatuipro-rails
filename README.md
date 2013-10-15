@@ -44,6 +44,9 @@ If you haven't bought it already, please use my Designmodo Affiliate Link (image
 Thanks [@jehughes](https://github.com/jehughes) for the blog post that inspired me to stop being lazy and write the demo page generator =)
 
 ## Changes
+#### 1.2.2.0.branch
+* Detect Flat-UI-Pro-1.2.2 directory
+* Everything else seems to still work =)
 #### 1.2.1.0.branch
 * Git branch (flatuipro-1.2) and gem release for people who want to use Bootstrap 3
 * Rails bootstrap gem changed: _twitter-bootstrap-rails_ -> _bootstrap-on-rails_
