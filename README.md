@@ -7,7 +7,7 @@ You **must** purchase and download a licensed copy to use this gem (none of the 
 The version major and minors should match the Flat UI Pro version.  Anything after these are gem versions.
 
 ## Installation
-First install and configure dependencies: [bootstrap-on-rails](https://github.com/jasontorres/bootstrap-on-rails) and [jquery-ui-rails](https://github.com/joliss/jquery-ui-rails) .
+First install and configure dependencies: [less-rails-bootstrap](https://github.com/metaskills/less-rails-bootstrap) and [jquery-ui-rails](https://github.com/joliss/jquery-ui-rails) .
 
 Add this line to your application's Gemfile:
 
