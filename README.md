@@ -11,7 +11,7 @@ First install and configure dependencies: [less-rails-bootstrap](https://github.
 
 Add this line to your application's Gemfile:
 
-    gem 'designmodo-flatuipro-rails', '~> 1.2.2.0.branch'
+    gem 'designmodo-flatuipro-rails', '~> 1.2.4.0.branch'
 
 And then execute:
 
@@ -19,7 +19,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install designmodo-flatuipro-rails -v 1.2.2.0.branch
+    $ gem install designmodo-flatuipro-rails -v 1.2.4.0.branch
 
 ### Install Generator
 One **must** run this after install *and* after update of designmodo-flatuipro-rails gem:
@@ -44,6 +44,13 @@ If you haven't bought it already, please use my Designmodo Affiliate Link (image
 Thanks [@jehughes](https://github.com/jehughes) for the blog post that inspired me to stop being lazy and write the demo page generator =)
 
 ## Changes
+#### 1.2.4.0.branch
+* Detect Flat-UI-Pro-1.2.4 directory
+* Change bootstrap 3 rails gem dependency from bootstrap-on-rails -> less-rails-bootstrap
+* Flat UI Pro 1.2.4 changes
+  * switch.less patch fix because of newline change (\n to \r\n)
+  * bootstrap-typeahead.js -> typeahead.js
+
 #### 1.2.2.0.branch
 * Detect Flat-UI-Pro-1.2.2 directory
 * Everything else seems to still work =)
