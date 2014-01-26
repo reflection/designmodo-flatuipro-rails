@@ -15,8 +15,8 @@ module Flatuipro
         unless File.exist?(File.join(pro_dir, "index.html"))
           pro_dir = File.join(pro_dir, "HTML/UI")
         end
-        if File.directory?(File.join(pro_dir, "Flat-UI-Pro-1.2.2"))
-          pro_dir = File.join(pro_dir, "Flat-UI-Pro-1.2.2")
+        if File.directory?(File.join(pro_dir, "Flat-UI-Pro-1.2.4"))
+          pro_dir = File.join(pro_dir, "Flat-UI-Pro-1.2.4")
         end
         unless File.directory?(pro_dir) && File.exist?(File.join(pro_dir, "index.html"))
           raise "Invalid Flat UI Pro directory"
@@ -90,7 +90,7 @@ module Flatuipro
         # Create LESS variable and interpolate into .mask(~"")
         switch_file = File.join(gem_assets_dir, "less/modules", "switch.less")
         mask_image_url = "@mask-image-url: image-url('switch/mask.png');\n"
-        insert_into_file switch_file, mask_image_url, :before => ".has-switch {\n"
+        insert_into_file switch_file, mask_image_url, :before => ".has-switch {"
         gsub_file switch_file, /url\('\.\.\/images\/.+?\)/, "@{mask-image-url}"
 
         # icon-font.less
