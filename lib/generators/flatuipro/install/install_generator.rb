@@ -15,8 +15,8 @@ module Flatuipro
         unless File.exist?(File.join(pro_dir, "index.html"))
           pro_dir = File.join(pro_dir, "HTML/UI")
         end
-        if File.directory?(File.join(pro_dir, "Flat-UI-Pro-1.2.4"))
-          pro_dir = File.join(pro_dir, "Flat-UI-Pro-1.2.4")
+        if File.directory?(File.join(pro_dir, "Flat-UI-Pro-1.2.5"))
+          pro_dir = File.join(pro_dir, "Flat-UI-Pro-1.2.5")
         end
         unless File.directory?(pro_dir) && File.exist?(File.join(pro_dir, "index.html"))
           raise "Invalid Flat UI Pro directory"
@@ -93,11 +93,19 @@ module Flatuipro
         insert_into_file switch_file, mask_image_url, :before => ".has-switch {"
         gsub_file switch_file, /url\('\.\.\/images\/.+?\)/, "@{mask-image-url}"
 
-        # icon-font.less
-        gsub_file File.join(gem_assets_dir, "less", "icon-font.less"), /url\("\.\.\/fonts\//, 'font-url("'
+        # variables.less
+        gsub_file File.join(gem_assets_dir, "less", "variables.less"), /"..\/fonts\/lato\/"/, '"lato/"'
+        gsub_file File.join(gem_assets_dir, "less", "variables.less"), /"..\/fonts\/"/, '""'
 
-        # font.less
-        gsub_file File.join(gem_assets_dir, "less", "fonts.less"), /url\('\.\.\/fonts\//, "font-url('"
+        # local-fonts.less
+        gsub_file(File.join(gem_assets_dir, "less/modules", "local-fonts.less"), /~"url.+?"/) { |match|
+          match[2..-2].sub(/url\('(.+?)'\)/, "font-url('\\1')")
+        }
+
+        # glyphicons.less
+        gsub_file(File.join(gem_assets_dir, "less/modules", "glyphicons.less"), /~"url.+?"/) { |match|
+          match[2..-2].sub(/url\('(.+?)'\)/, "font-url('\\1')")
+        }
         
         # Demo page patches
         file = File.join(gem_assets_dir, "demo", "index.html")
