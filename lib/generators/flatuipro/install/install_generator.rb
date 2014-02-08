@@ -106,6 +106,9 @@ module Flatuipro
         gsub_file(File.join(gem_assets_dir, "less/modules", "glyphicons.less"), /~"url.+?"/) { |match|
           match[2..-2].sub(/url\('(.+?)'\)/, "font-url('\\1')")
         }
+
+        # Fix syntax error when precompiling assets
+        gsub_file File.join(gem_assets_dir, "less/modules", "caret.less"), ".scale(1.001);", "//.scale(1.001);"
         
         # Demo page patches
         file = File.join(gem_assets_dir, "demo", "index.html")
