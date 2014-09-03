@@ -23,27 +23,27 @@ module Flatuipro
         copy_file "index.html.erb", "app/views/flatuipro_demo/index.html.erb"
 
         # Add demo LESS
-        copy_file "flatuipro-demo.less", "app/assets/stylesheets/flatuipro-demo.less"
-        
+        copy_file "docs.less", "app/assets/stylesheets/docs.less"
+
         # Handle CSS Manifest
         css_manifest = "app/assets/stylesheets/application.css"
         if File.exist?(css_manifest)
           content = File.read(css_manifest)
           unless content.match(/require_tree\s+\./)
-            style_require_block = " *= require flatuipro-demo\n"
+            style_require_block = " *= require docs\n"
             insert_into_file css_manifest, style_require_block, :after => "require_self\n"
           end
         end
 
         # Add demo javascript
-        copy_file "flatuipro-demo.js", "app/assets/javascripts/flatuipro-demo.js"
+        copy_file "application-docs.js", "app/assets/javascripts/application-docs.js"
 
         # Handle JS Manifest
         js_manifest = "app/assets/javascripts/application.js"
         if File.exist?(js_manifest)
           content = File.read(js_manifest)
           unless content.match(/require_tree\s+\./)
-            insert_into_file js_manifest, "//= require flatuipro-demo\n", :after => "flatuipro\n"
+            insert_into_file js_manifest, "//= require application-docs\n", :after => "flatuipro\n"
           end
         end
       end
