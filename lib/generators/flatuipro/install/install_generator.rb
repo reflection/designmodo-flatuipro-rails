@@ -93,19 +93,14 @@ module Flatuipro
         # gsub_file switch_file, /url\('\.\.\/images\/.+?\)/, "@{mask-image-url}"
         #
         # variables.less
-        gsub_file File.join(gem_assets_dir, "less", "variables.less"), /"..\/fonts\/lato\/"/, '"lato/"'
-        gsub_file File.join(gem_assets_dir, "less", "variables.less"), /"..\/fonts\/"/, '""'
-        #
-        # # local-fonts.less
-        # gsub_file(File.join(gem_assets_dir, "less/modules", "local-fonts.less"), /~"url.+?"/) { |match|
-        #   match[2..-2].sub(/url\('(.+?)'\)/, "font-url('\\1')")
-        # }
-        #
+        gsub_file File.join(gem_assets_dir, "less/variables.less"), /..\/fonts\//, ""
+
+        # local-fonts.less
+        gsub_file File.join(gem_assets_dir, "less/modules/local-fonts.less"), "url", "font-url"
+
         # glyphicons.less
-        gsub_file(File.join(gem_assets_dir, "less/modules", "glyphicons.less"), /~"url.+?"/) { |match|
-          match[2..-2].sub(/url\('(.+?)'\)/, "font-url('\\1')")
-        }
-        #
+        gsub_file File.join(gem_assets_dir, "less/modules/glyphicons.less"), "url", "font-url"
+
         # # Fix syntax error when precompiling assets
         # gsub_file File.join(gem_assets_dir, "less/modules", "caret.less"), ".scale(1.001);", "//.scale(1.001);"
 
