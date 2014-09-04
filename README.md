@@ -11,7 +11,7 @@ First install and configure dependencies: [less-rails-bootstrap](https://github.
 
 Add this line to your application's Gemfile:
 
-    gem 'designmodo-flatuipro-rails', '~> 1.2.5.0.branch'
+    gem 'designmodo-flatuipro-rails', '~> 1.3.0.0.branch'
 
 And then execute:
 
@@ -19,7 +19,10 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install designmodo-flatuipro-rails -v 1.2.5.0.branch
+    $ gem install designmodo-flatuipro-rails -v 1.3.0.0.branch
+
+### Fetch Flat UI Pro JS dependencies via Bower
+Install [Bower](http://bower.io).  Run 'bower install' in the Flat UI Pro directory that contains the bower.json file.
 
 ### Install Generator
 One **must** run this after install *and* after update of designmodo-flatuipro-rails gem:
@@ -33,7 +36,7 @@ If you want to integrate the demo page:
 
 The demo generator creates a 'flatuipro\_demo' controller with a default 'flatuipro\_demo/index' route.
 
-IMPORTANT: After deciding which components to use from the demo page, make sure to only include the corresponding less/css and js that you need from the flatuipro-demo.* files
+IMPORTANT: After deciding which components to use from the demo page, make sure to only include the what you need from the docs.js and docs.less demo files
 
 ## Usage
 After running the install generator, all assets should be setup.
@@ -44,6 +47,12 @@ If you haven't bought it already, please use my Designmodo Affiliate Link (image
 Thanks [@jehughes](https://github.com/jehughes) for the blog post that inspired me to stop being lazy and write the demo page generator =)
 
 ## Changes
+#### 1.3.0.0.branch
+* Detect Flat-UI-Pro-1.3.0 directory
+* Flat UI Pro 1.3.0 changes
+  * JS dependencies no longer bundled so users now have to fetch them first via Bower
+  * Lots of directory and file name changes
+
 #### 1.2.5.0.branch
 * Detect Flat-UI-Pro-1.2.5 directory
 * Flat UI Pro 1.2.5 changes
