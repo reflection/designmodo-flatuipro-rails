@@ -45,8 +45,7 @@ module Flatuipro
         copy_file File.join(pro_dir, "docs/index.html"),                      File.join(gem_assets_dir, "demo", "index.html")
         copy_file File.join(pro_dir, "docs/assets/css/src/docs.less"),        File.join(gem_assets_dir, "demo", "docs.less")
         copy_file File.join(pro_dir, "docs/assets/css/src/prettyprint.less"), File.join(gem_assets_dir, "demo", "prettyprint.less")
-        copy_file File.join(pro_dir, "docs/assets/js/application-docs.js"),   File.join(gem_assets_dir, "demo", "application-docs.js")
-        copy_file File.join(pro_dir, "docs/assets/js/prettify.js"),           File.join(gem_assets_dir, "demo", "prettify.js")
+        copy_file File.join(pro_dir, "docs/assets/js/application-docs.js"),   File.join(gem_assets_dir, "demo", "docs.js")
       end
 
       def add_assets
