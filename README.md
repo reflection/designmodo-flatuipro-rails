@@ -2,7 +2,7 @@
 
 This gem integrates Designmodo's Flat UI Pro Design for Twitter Bootstrap 2 into the Rails 3 and 4 Asset Pipeline.
 
-For Twitter Bootstrap 3, see _flatuipro-1.2_ branch.
+For Twitter Bootstrap 3, see _flatuipro-1.3_ branch.
 
 You **must** purchase and download a licensed copy to use this gem (none of the assets are packaged per Flat UI Pro license).  You may do so by clicking the above image (full disclosure: affiliate link).
 
