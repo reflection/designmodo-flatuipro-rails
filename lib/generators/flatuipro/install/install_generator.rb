@@ -21,17 +21,32 @@ module Flatuipro
         unless File.exist?(File.join(pro_dir, "docs/index.html"))
           raise "Invalid Flat UI Pro directory"
         end
+        unless File.directory?(File.join(pro_dir, "bower_components"))
+          raise "'bower install' must be run first to fetch javascript dependencies"
+        end
 
-        directory File.join(pro_dir, "less"),                   File.join(gem_assets_dir, "less")
-        directory File.join(pro_dir, "fonts"),                  File.join(gem_assets_dir, "fonts")
-        directory File.join(pro_dir, "docs/assets/img"),        File.join(gem_assets_dir, "images")
-        copy_file File.join(pro_dir, "dist/js/flat-ui-pro.js"), File.join(gem_assets_dir, "javascripts", "flat-ui-pro.js")
+
+        directory File.join(pro_dir, "js"),                                                               File.join(gem_assets_dir, "javascripts")
+        copy_file File.join(pro_dir, "bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"),    File.join(gem_assets_dir, "javascripts/bootstrap-switch.js")
+        copy_file File.join(pro_dir, "bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"), File.join(gem_assets_dir, "javascripts/bootstrap-tagsinput.js")
+        copy_file File.join(pro_dir, "bower_components/holderjs/holder.js"),                              File.join(gem_assets_dir, "javascripts/holder.js")
+        copy_file File.join(pro_dir, "bower_components/jquery-placeholder/jquery.placeholder.js"),        File.join(gem_assets_dir, "javascripts/jquery.placeholder.js")
+        copy_file File.join(pro_dir, "bower_components/jquery-ui-touch-punch/jquery.ui.touch-punch.js"),  File.join(gem_assets_dir, "javascripts/jquery.ui.touch-punch.js")
+        copy_file File.join(pro_dir, "bower_components/respond/dest/respond.src.js"),                     File.join(gem_assets_dir, "javascripts/respond.js")
+        copy_file File.join(pro_dir, "bower_components/select2/select2.js"),                              File.join(gem_assets_dir, "javascripts/select2.js")
+        copy_file File.join(pro_dir, "bower_components/typeahead.js/dist/typeahead.bundle.js"),           File.join(gem_assets_dir, "javascripts/typeahead.bundle.js")
+        copy_file File.join(pro_dir, "bower_components/videojs/dist/video-js/video.js"),                  File.join(gem_assets_dir, "javascripts/video.js")
+
+        directory File.join(pro_dir, "less"),             File.join(gem_assets_dir, "less")
+        directory File.join(pro_dir, "fonts"),            File.join(gem_assets_dir, "fonts")
+        directory File.join(pro_dir, "docs/assets/img"),  File.join(gem_assets_dir, "images")
 
         # Demo page assets
         copy_file File.join(pro_dir, "docs/index.html"),                      File.join(gem_assets_dir, "demo", "index.html")
         copy_file File.join(pro_dir, "docs/assets/css/src/docs.less"),        File.join(gem_assets_dir, "demo", "docs.less")
         copy_file File.join(pro_dir, "docs/assets/css/src/prettyprint.less"), File.join(gem_assets_dir, "demo", "prettyprint.less")
         copy_file File.join(pro_dir, "docs/assets/js/application-docs.js"),   File.join(gem_assets_dir, "demo", "application-docs.js")
+        copy_file File.join(pro_dir, "docs/assets/js/prettify.js"),           File.join(gem_assets_dir, "demo", "prettify.js")
       end
 
       def add_assets

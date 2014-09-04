@@ -37,6 +37,7 @@ module Flatuipro
 
         # Add demo javascript
         copy_file "application-docs.js", "app/assets/javascripts/application-docs.js"
+        copy_file "prettify.js", "app/assets/javascripts/prettify.js"
 
         # Handle JS Manifest
         js_manifest = "app/assets/javascripts/application.js"
