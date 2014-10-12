@@ -47,6 +47,12 @@ If you haven't bought it already, please use my Designmodo Affiliate Link (image
 Thanks [@jehughes](https://github.com/jehughes) for the blog post that inspired me to stop being lazy and write the demo page generator =)
 
 ## Changes
+#### 1.3.1.0.branch
+* Detect Flat-UI-Pro-v1.3.1 directory
+* Flat UI Pro 1.3.1 changes
+  * Add jquery.timepicker.js dependency
+  * Remove patches for issues designmodo fixed
+
 #### 1.3.0.0.branch
 * Detect Flat-UI-Pro-1.3.0 directory
 * Flat UI Pro 1.3.0 changes
@@ -81,4 +87,3 @@ Thanks [@jehughes](https://github.com/jehughes) for the blog post that inspired 
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-
