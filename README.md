@@ -11,7 +11,7 @@ First install and configure dependencies: [less-rails-bootstrap](https://github.
 
 Add this line to your application's Gemfile:
 
-    gem 'designmodo-flatuipro-rails', '~> 1.3.0.0.branch'
+    gem 'designmodo-flatuipro-rails', '~> 1.3.1.0.branch'
 
 And then execute:
 
@@ -19,7 +19,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install designmodo-flatuipro-rails -v 1.3.0.0.branch
+    $ gem install designmodo-flatuipro-rails -v 1.3.1.0.branch
 
 ### Fetch Flat UI Pro JS dependencies via Bower
 Install [Bower](http://bower.io).  Run 'bower install' in the Flat UI Pro directory that contains the bower.json file.
