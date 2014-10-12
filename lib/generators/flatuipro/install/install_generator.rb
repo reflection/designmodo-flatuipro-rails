@@ -15,8 +15,8 @@ module Flatuipro
         unless File.exist?(File.join(pro_dir, "index.html"))
           pro_dir = File.join(pro_dir, "HTML/UI")
         end
-        if File.directory?(File.join(pro_dir, "Flat-UI-Pro-1.3.0"))
-          pro_dir = File.join(pro_dir, "Flat-UI-Pro-1.3.0")
+        if File.directory?(File.join(pro_dir, "Flat-UI-Pro-v1.3.1"))
+          pro_dir = File.join(pro_dir, "Flat-UI-Pro-v1.3.1")
         end
         unless File.exist?(File.join(pro_dir, "docs/index.html"))
           raise "Invalid Flat UI Pro directory"
@@ -31,6 +31,7 @@ module Flatuipro
         copy_file File.join(pro_dir, "bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"), File.join(gem_assets_dir, "javascripts/bootstrap-tagsinput.js")
         copy_file File.join(pro_dir, "bower_components/holderjs/holder.js"),                              File.join(gem_assets_dir, "javascripts/holder.js")
         copy_file File.join(pro_dir, "bower_components/jquery-placeholder/jquery.placeholder.js"),        File.join(gem_assets_dir, "javascripts/jquery.placeholder.js")
+        copy_file File.join(pro_dir, "bower_components/jquery-timepicker-jt/jquery.timepicker.js"),       File.join(gem_assets_dir, "javascripts/jquery.timepicker.js")
         copy_file File.join(pro_dir, "bower_components/jquery-ui-touch-punch/jquery.ui.touch-punch.js"),  File.join(gem_assets_dir, "javascripts/jquery.ui.touch-punch.js")
         copy_file File.join(pro_dir, "bower_components/respond/dest/respond.src.js"),                     File.join(gem_assets_dir, "javascripts/respond.js")
         copy_file File.join(pro_dir, "bower_components/select2/select2.js"),                              File.join(gem_assets_dir, "javascripts/select2.js")
@@ -98,14 +99,6 @@ module Flatuipro
         gem_assets_dir = File.expand_path("../../../../../app/assets", __FILE__)
 
         # LESS patches
-        # # switch.less
-        # # More involved patch because less-rails won't translate when inside ~""
-        # # Create LESS variable and interpolate into .mask(~"")
-        # switch_file = File.join(gem_assets_dir, "less/modules", "switch.less")
-        # mask_image_url = "@mask-image-url: image-url('switch/mask.png');\n"
-        # insert_into_file switch_file, mask_image_url, :before => ".has-switch {"
-        # gsub_file switch_file, /url\('\.\.\/images\/.+?\)/, "@{mask-image-url}"
-        #
         # variables.less
         gsub_file File.join(gem_assets_dir, "less/variables.less"), /..\/fonts\//, ""
 
@@ -114,13 +107,6 @@ module Flatuipro
 
         # glyphicons.less
         gsub_file File.join(gem_assets_dir, "less/modules/glyphicons.less"), "url", "font-url"
-
-        # # Fix syntax error when precompiling assets
-        # gsub_file File.join(gem_assets_dir, "less/modules", "caret.less"), ".scale(1.001);", "//.scale(1.001);"
-
-        # Demo Image Rename
-        # Designmodo designers - google<space>.svg?  Really?  And having it correct in index.html?  For shame
-        link_file File.join(gem_assets_dir, "images/icons/google .svg"), File.join(gem_assets_dir, "images/icons/google.svg")
 
         # Demo LESS patches
         gsub_file File.join(gem_assets_dir, "demo", "docs.less"), "..\/..\/..\/..\/less\/", ""
